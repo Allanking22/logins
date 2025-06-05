@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Registration - MyCo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .registration-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+        .company-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .company-header img {
+            max-width: 150px; /* Adjust as needed */
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .company-header h1 {
+            font-size: 24px;
+            color: #333;
+            margin: 0;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .form-group input[type="checkbox"] {
+            margin-right: 8px;
+        }
+        .form-group .password-strength {
+            margin-top: 5px;
+            font-size: 12px;
+            color: #777;
+        }
+        .submit-button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+        .submit-button:hover {
+            background-color: #0056b3;
+        }
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+        .login-link a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="registration-container">
+        <div class="company-header">
+            <img src="data:image/jpeg;base64,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" alt="MyCo Logo">
+            <h1>MyCo</h1>
+            <p>Customer Registration</p>
+        </div>
+        <form action="/register" method="POST">
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+                <div class="password-strength">
+                    Password must be at least 8 characters long, contain an uppercase letter, a lowercase letter, and a number.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">I agree to the <a href="/terms-and-conditions" target="_blank">Terms and Conditions</a> and <a href="/privacy-policy" target="_blank">Privacy Policy</a>.</label>
+            </div>
+            <button type="submit" class="submit-button">Register</button>
+        </form>
+        <div class="login-link">
+            Already have an account? <a href="/login">Log In</a>
+        </div>
+    </div>
+
+    <script>
+        const password = document.getElementById('password');
+        const confirmPassword = document.getElementById('confirmPassword');
+
+        confirmPassword.addEventListener('keyup', function() {
+            if (password.value !== confirmPassword.value) {
+                confirmPassword.setCustomValidity("Passwords don't match.");
+            } else {
+                confirmPassword.setCustomValidity('');
+            }
+        });
+    </script>
+</body>
+</html>
